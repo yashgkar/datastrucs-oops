@@ -1,4 +1,4 @@
-class stack():
+class Stack():
     def __init__(self):
         self.items = []
     
@@ -17,12 +17,12 @@ class stack():
 #get_stack for returning all elements in the stack
     def get_stack(self):
         return self.items
-
-s = stack()
+'''
+s = Stack()
 print(s.is_empty())
 s.push("A")
 s.push("B")
 s.push("C")
 s.push("D")
 print(s.get_stack())
-print(s.top_el())
+print(s.top_el())'''
