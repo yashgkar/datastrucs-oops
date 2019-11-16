@@ -9,8 +9,9 @@ class LinkedList:
     
     def printll(self):
         cur_node = self.head
+        print("\nLinked list is")
         while cur_node:
-            print(cur_node.data)
+            print(cur_node.data, end=" -> ")
             cur_node = cur_node.next
 
     def append(self, data):
@@ -31,22 +32,22 @@ class LinkedList:
         new_node.next = self.head
         self.head = new_node
     
-    '''def insert_betwn(self, prev, data):
+    def insert_betwn(self, prev, data):
         
         new_node = Node(data)
 
         pr_node = self.head
-        if prev is pr_node.data:
-            print("match")
-            new_node.next = pr_node.next
-            pr_node.next = new_node
-            llist.printll()
+        while pr_node.next:
+            if prev is pr_node.data:
+                new_node.next = pr_node.next
+                pr_node.next = new_node
+                break
 
-        elif prev is not pr_node.data:
-            pr_node = pr_node.next
+            elif prev is not pr_node.data:
+                pr_node = pr_node.next
 
-        else:
-            print("Previous node not detected")'''
+            else:
+                print("previous element not in linkedlist")
 
 
 
@@ -55,4 +56,8 @@ llist.append("A")
 llist.append("B")
 llist.append("C")
 llist.prepend("E")
+node = input("Enter the node after which you want to add a new node: ")
+data = input("Enter new node: ")
+llist.insert_betwn(node,data)
 llist.printll()
+print("\n")
