@@ -9,10 +9,15 @@ class LinkedList:
     
     def printll(self):
         cur_node = self.head
-        print("\nLinked list is")
-        while cur_node:
-            print(cur_node.data, end=" -> ")
-            cur_node = cur_node.next
+        if cur_node == None:
+            print("\nLinked list is Empty")
+
+        else:
+            print("\nLinked list is")
+            while cur_node:
+                print(cur_node.data, end=" -> ")
+                cur_node = cur_node.next
+            print("\n")
 
     def append(self, data):
         new_node = Node(data)
@@ -48,16 +53,89 @@ class LinkedList:
 
             else:
                 print("previous element not in linkedlist")
+    
+    def del_node(self, key):
+        
+        cur_node = self.head
+
+        if cur_node and cur_node.data == key:
+            self.head = cur_node.next
+            cur_node = None
+            return
+        
+        prev = None
+        while cur_node and cur_node.data !=key:
+            prev = cur_node
+            cur_node = cur_node.next
+        
+        if cur_node is None:
+            return
+
+        prev.next = cur_node.next
+        cur_node = None
+
+    def choose(self, m):
+        print("\n", "Linked List Operations".center(40,"_"))
+        print("\n1. Add/append a node")
+        print("\n2. Prepend a node")
+        print("\n3. Insert between a node")
+        print("\n4. Delete a node")
+        n = input("\nChoose your option")
+
+        if n == '1':
+
+            data = input("Enter node to be added: ")
+            m.append(data)
+            m.printll()
+            n = None
+            m.choose(m)
+            
+        if n == '2':
+            data = input("Enter node to be prepend: ")
+            m.prepend(data)
+            m.printll()
+            n = None
+            m.choose(m)
+        
+        if n == '3':
+            node = input("Enter the node after which you want to add a new node: ")
+            data = input("Enter new node: ")
+            m.insert_betwn(node,data)
+            m.printll()
+            n = None
+            m.choose(m)
+
+        if n == '4':
+            data = input("Enter node to be deleted: ")
+            m.del_node(data)
+            m.printll()
+            n = None
+            m.choose(m)
+
+        else:
+            print("\n","Wrong Choice".center(60,'*'))
+            n = None
+            m.choose(m)
+        
+
 
 
 
 llist = LinkedList()
+
+llist.choose(llist)
+
+
+
+
+'''
 llist.append("A")
 llist.append("B")
 llist.append("C")
 llist.prepend("E")
-node = input("Enter the node after which you want to add a new node: ")
-data = input("Enter new node: ")
-llist.insert_betwn(node,data)
+#node = input("Enter the node after which you want to add a new node: ")
+#data = input("Enter new node: ")
+#llist.insert_betwn(node,data)
+llist.del_node("C")
 llist.printll()
-print("\n")
+print("\n")'''
