@@ -4,20 +4,25 @@ class Node:
         self.next = None
 
 class LinkedList:
+    
     def __init__(self):
         self.head = None
     
     def printll(self):
+        lenl = 0
         cur_node = self.head
         if cur_node == None:
             print("\nLinked list is Empty")
 
         else:
+            
             print("\nLinked list is")
             while cur_node:
                 print(cur_node.data, end=" -> ")
                 cur_node = cur_node.next
-            print("\n")
+                lenl += 1
+            print("\nLength of linked list:")
+            print(lenl)
 
     def append(self, data):
         new_node = Node(data)

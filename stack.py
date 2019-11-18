@@ -17,8 +17,23 @@ class Stack():
 #get_stack for returning all elements in the stack
     def get_stack(self):
         return self.items
-'''
+
+def reverse(self, input_str):
+    for i in range(len(input_str)):
+        s.push(input_str[i])
+        
+    rev_str = ''
+    while not s.is_empty():
+        rev_str += s.pop()
+        
+    return rev_str
+
 s = Stack()
+input_str = 'Hello'
+print(reverse(s, input_str))
+
+'''
+
 print(s.is_empty())
 s.push("A")
 s.push("B")
