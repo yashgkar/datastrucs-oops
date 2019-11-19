@@ -79,12 +79,46 @@ class LinkedList:
         prev.next = cur_node.next
         cur_node = None
 
+    def swap_node(self, key_1, key_2):
+
+        if key_1 == key_2:
+            return
+        
+        prev_1 = None
+        curr_1 = self.head
+        while curr_1 and curr_1.data != key_1:
+            prev_1 = curr_1
+            curr_1 = curr_1.next
+
+        prev_2 = None
+        curr_2 = self.head
+        while curr_2 and curr_2.data != key_2:
+            prev_2 = curr_2
+            curr_2 = curr_2.next
+
+        if not curr_1 or not curr_2:
+            return
+        
+        if prev_1:
+            prev_1.next = curr_2
+        else:
+            self.head = curr_2
+
+        if prev_2:
+            prev_2.next = curr_1
+        else:
+            self.head = curr_1
+        
+        curr_1.next, curr_2.next = curr_2.next, curr_1.next
+        
+
     def choose(self, m):
         print("\n", "Linked List Operations".center(40,"_"))
         print("\n1. Add/append a node")
         print("\n2. Prepend a node")
         print("\n3. Insert between a node")
         print("\n4. Delete a node")
+        print("\n5. Node swap")
         n = input("\nChoose your option")
 
         if n == '1':
@@ -117,6 +151,15 @@ class LinkedList:
             n = None
             m.choose(m)
 
+        if n == '5':
+            data_a = input("Enter node 1: ")
+            data_b = input("Enter node 2: ")
+            m.swap_node(data_a, data_b)
+            m.printll()
+            n = None
+            m.choose(m)
+
+
         else:
             print("\n","Wrong Choice".center(60,'*'))
             n = None
@@ -132,15 +175,17 @@ llist.choose(llist)
 
 
 
-
 '''
+
 llist.append("A")
 llist.append("B")
 llist.append("C")
-llist.prepend("E")
+llist.append("D")
 #node = input("Enter the node after which you want to add a new node: ")
 #data = input("Enter new node: ")
 #llist.insert_betwn(node,data)
-llist.del_node("C")
+#llist.del_node("C")
+llist.printll()
+llist.swap_node('B','C')
 llist.printll()
 print("\n")'''
