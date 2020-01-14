@@ -174,18 +174,3 @@ llist = LinkedList()
 llist.choose(llist)
 
 
-
-'''
-
-llist.append("A")
-llist.append("B")
-llist.append("C")
-llist.append("D")
-#node = input("Enter the node after which you want to add a new node: ")
-#data = input("Enter new node: ")
-#llist.insert_betwn(node,data)
-#llist.del_node("C")
-llist.printll()
-llist.swap_node('B','C')
-llist.printll()
-print("\n")'''
